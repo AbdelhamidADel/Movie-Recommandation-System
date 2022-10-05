@@ -22,9 +22,10 @@ def recommend(movie):
         recommended_movie_posters.append(fectch_poster(movie_id))
 
     return recommended_movie_names, recommended_movie_posters
-
-movies_list = pickle.load(open('Movies.pkl', 'rb'))
-similarity = pickle.load(open('Movie_Recommendation.pkl', 'rb'))
+file = open("Movies.pkl",'rb')
+movies_list = pickle.load(file)
+file2=open('Movie_Recommendation.pkl', 'rb')
+similarity = pickle.load(file2)
 
 movies_list = DataFrame(movies_list)
 #----------------------------------------------------------------
