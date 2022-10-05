@@ -24,8 +24,10 @@ def recommend(movie):
     return recommended_movie_names, recommended_movie_posters
 file = open("Movies.pkl",'rb')
 movies_list = pickle.load(file)
+
 file2=open('Movie_Recommendation.pkl', 'rb')
-similarity = pickle.load(file2)
+world_data = ast.literal_eval(file2.read())
+similarity = similarity(world_data)
 
 movies_list = DataFrame(movies_list)
 #----------------------------------------------------------------
