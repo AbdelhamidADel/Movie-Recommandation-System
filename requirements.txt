@@ -88,3 +88,4 @@ watchdog==2.1.9
 wcwidth==0.2.5
 widgetsnbextension==4.0.3
 zipp==3.8.1
+git-lfs
