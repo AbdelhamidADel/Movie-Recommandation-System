@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 def fectch_poster(movie_id):
-    response = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0d2435c75b4b0663a372fccaf03b4a8&language=en-US")
+    response = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8bdea332b5afd2a6a21d92ee9e9ce34f")
     data = response.json()
     return "http://image.tmdb.org/t/p/w500/" + data['poster_path']
 
