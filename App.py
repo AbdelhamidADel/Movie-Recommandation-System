@@ -3,6 +3,8 @@ import pickle
 from pandas import DataFrame
 import requests
 import base64
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 def fectch_poster(movie_id):
     response = requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=f0d2435c75b4b0663a372fccaf03b4a8&language=en-US")
@@ -24,9 +26,10 @@ def recommend(movie):
     return recommended_movie_names, recommended_movie_posters
 
 movies_list = pickle.load(open('Movies.pkl', 'rb'))
-similarity = pickle.load(open('Movie_Recommendation.pkl', 'rb'))
-
 movies_list = DataFrame(movies_list)
+vectroize = CountVectorizer(max_features=5000,stop_words='english')
+vectors = vectroize.fit_transform(movies_list['movie_combination']).toarray()
+similarity = cosine_similarity(vectors)
 #----------------------------------------------------------------
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
