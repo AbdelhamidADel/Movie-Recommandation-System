@@ -48,6 +48,7 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 set_background('Cover_Project.jfif')
+st.set_option('wideMode' , True)
 #------------------------------------------------------------------ 
 st.title("Movie Recommandation System")
 option = st.selectbox("Select Movie Name", movies_list['title'].values)
